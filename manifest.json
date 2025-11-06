@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Google AI Overview Remover",
+  "version": "1.0",
+  "description": "Removes AI Overview sections from Google Search results",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.google.com/search*",
+        "*://www.google.com/*/search*",
+        "*://google.com/search*",
+        "*://google.com/*/search*",
+        "*://www.google.com/*",
+        "*://google.com/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}

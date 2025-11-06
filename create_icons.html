@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Icon Generator</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .icon { 
+            display: inline-block; 
+            margin: 10px; 
+            text-align: center; 
+            background: #4285f4; 
+            color: white; 
+            border-radius: 8px;
+            font-weight: bold;
+        }
+        .icon16 { width: 16px; height: 16px; font-size: 10px; line-height: 16px; }
+        .icon48 { width: 48px; height: 48px; font-size: 24px; line-height: 48px; }
+        .icon128 { width: 128px; height: 128px; font-size: 64px; line-height: 128px; }
+        button { margin: 10px; padding: 10px; background: #4285f4; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background: #3367d6; }
+    </style>
+</head>
+<body>
+    <h2>Google AI Overview Remover - Icon Generator</h2>
+    <p>Click the button below to generate and download the extension icons:</p>
+    
+    <button onclick="generateIcons()">Generate Icons</button>
+    
+    <div id="preview">
+        <h3>Preview:</h3>
+        <div class="icon icon16">AI</div>
+        <div class="icon icon48">AI</div>
+        <div class="icon icon128">AI</div>
+    </div>
+    
+    <script>
+        function generateIcons() {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            
+            function createIcon(size, filename) {
+                canvas.width = size;
+                canvas.height = size;
+                
+                // Clear canvas
+                ctx.clearRect(0, 0, size, size);
+                
+                // Draw background
+                ctx.fillStyle = '#4285f4';
+                ctx.fillRect(0, 0, size, size);
+                
+                // Draw "AI" text
+                ctx.fillStyle = 'white';
+                ctx.font = `bold ${size * 0.4}px Arial`;
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText('AI', size / 2, size / 2);
+                
+                // Convert to data URL and download
+                const dataURL = canvas.toDataURL('image/png');
+                const link = document.createElement('a');
+                link.download = filename;
+                link.href = dataURL;
+                link.click();
+            }
+            
+            // Generate all three icon sizes
+            createIcon(16, 'icon16.png');
+            createIcon(48, 'icon48.png');
+            createIcon(128, 'icon128.png');
+            
+            alert('Icons generated! Check your downloads folder.');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google AI Overview Remover - Test Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .test-section {
+            background: #f5f5f5;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .ai-overview {
+            background: #e8f4fd;
+            border: 2px solid #4285f4;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .ai-overview::before {
+            content: "🤖 AI Overview: ";
+            font-weight: bold;
+            color: #4285f4;
+        }
+        .search-result {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .code-block {
+            background: #f8f8f8;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 3px;
+            font-family: monospace;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Google AI Overview Remover - Test Page</h1>
+    
+    <div class="test-section">
+        <h2>Test Instructions</h2>
+        <ol>
+            <li>Load this extension in Chrome</li>
+            <li>Go to <a href="https://www.google.com/search?q=ai+overview" target="_blank">Google Search with AI Overview</a></li>
+            <li>Check if AI Overview sections are removed</li>
+            <li>Verify that regular search results are still visible</li>
+        </ol>
+    </div>
+
+    <div class="test-section">
+        <h2>What the Extension Should Remove</h2>
+        <p>The extension should remove elements that contain:</p>
+        <ul>
+            <li>Text containing "AI Overview", "AI-generated", "Gemini", etc.</li>
+            <li>Elements with AI-related attributes like <code>data-ai</code>, <code>data-ved*="ai"</code></li>
+            <li>Elements with classes like <code>ai-overview</code>, <code>gemini</code></li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h2>Test Elements (These should be removed by the extension)</h2>
+        
+        <!-- Test with actual Google AI Overview structure -->
+        <div data-mcpr="" class="YzCcne" data-mg-cp="YzCcne" data-mcp="18">
+            <h1 style="margin:0;padding:0;clip:rect(1px,1px,1px,1px);height:1px;overflow:hidden;position:absolute;white-space:nowrap;width:1px;z-index:-1000;-webkit-user-select:none">AI overview</h1>
+            <div class="hdzaWe" jscontroller="" data-is-desktop="1">
+                <div class="Fzsovc" aria-hidden="true">AI Overview</div>
+                <div class="EyBRub jUja0e aPfNm">
+                    <div class="Pqkn2e rNSxBe">
+                        <div class="jloFI GkDqAd">
+                            <p>This is a test AI Overview section that should be removed. It contains AI-generated content about various topics.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="search-result">
+            <h3>Regular Search Result</h3>
+            <p>This should NOT be removed as it's a normal search result.</p>
+        </div>
+        
+        <div class="ai-overview" data-ai="true">
+            <h3>Another AI Overview Test</h3>
+            <p>This should also be removed.</p>
+        </div>
+        
+        <div class="search-result">
+            <h3>Another Regular Search Result</h3>
+            <p>This should also NOT be removed.</p>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>Extension Status</h2>
+        <p>Check the browser console (F12) for extension messages like:</p>
+        <div class="code-block">
+            Google AI Overview Remover: Observer initialized successfully<br>
+            Google AI Overview Remover: Removed X AI Overview elements
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>Troubleshooting</h2>
+        <ul>
+            <li><strong>Page goes blank:</strong> The extension might be too aggressive. Check console for errors.</li>
+            <li><strong>AI Overview not removed:</strong> Google might have changed their structure. Check console for detection messages.</li>
+            <li><strong>Extension not working:</strong> Make sure it's enabled and reload the page.</li>
+        </ul>
+    </div>
+
+    <script>
+        // Simulate some dynamic content loading
+        setTimeout(() => {
+            const dynamicAI = document.createElement('div');
+            dynamicAI.className = 'ai-overview';
+            dynamicAI.setAttribute('data-ai', 'true');
+            dynamicAI.textContent = 'This is dynamically loaded AI content that should be removed.';
+            document.body.appendChild(dynamicAI);
+        }, 2000);
+    </script>
+</body>
+</html>
