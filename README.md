@@ -13,11 +13,12 @@ It identifies and intercepts AI-generated blocks in real-time as the page loads,
 
 ---
 
-## 💖 Support the Project
+## 💖 Support my Open-Source Journey
 
-This extension is 100% free and open-source. I am an independent student developer dedicated to building tools that give users back their digital agency. If this tool helped you save time or clean up your web experience, consider supporting my work!
+I am a software engineer and student dedicated to building tools that give users back their digital agency. If my work has saved you time, solved a technical headache, or improved your workflow, consider supporting my independent development!
 
-☕ **[Support my work on Patreon (Buy Me a Coffee)](https://patreon.com/HussainRazaKhan)**
+☕ **[Support my work on Patreon (Buy Me a Coffee)](https://patreon.com/HussainRazaKhan)** or 
+    **NayaPay ID:** `HusineRzaKhan@nayapay`
 
 ---
 
